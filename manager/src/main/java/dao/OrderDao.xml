@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//dtd Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.OrderDao">
+	<resultMap type="Order" id="CustomerWithOrder">
+		<id property="orderId" column="orderId"/>
+		<result property="paymentDate" column="paymentDate"/>
+		<result property="expireDate" column="expireDate"/>
+		<result property="price" column="price"/>
+		<result property="director" column="director"/>
+		<result property="remainder" column="remainder"/>
+		<result property="customerId" column="customerId"/>
+		<association property="customer" javaType="Customer">
+			<id property="customerId" column="customerId"/>
+			<result property="customerName" column="customerName"/>
+			<result property="phone" column="phone"/>
+			<result property="dorm" column="dorm"/>
+			<result property="type" column="type"/>
+		</association>
+	</resultMap>
+</mapper>

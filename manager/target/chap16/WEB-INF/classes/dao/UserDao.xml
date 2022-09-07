@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//dtd Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.UserDao">
+	<select id="getUser" parameterType="int" resultMap="uMap">
+		select * from user 
+		where id=#{id}
+	</select>
+	
+	<resultMap id="uMap" type="User">
+		<id property ="id" column="id"/>
+		<result property="username" column="username"/>
+		
+		<association property="card" javaType="IDCard" column="cardid" 
+		select="dao.IDCardDao.getCard"/>
+	</resultMap>
+	
+ 
+</mapper>
